@@ -9,7 +9,6 @@
 /* bg акцент #F5F4FA */
 /* шрифт лого Raleway 700*/
 /* шрифт текста Roboto 900 700 500 400*/
-
 :root {
   --accent-color: #2196f3;
   --text-title-color: #212121;
@@ -24,12 +23,13 @@
   --section-card-set-gap: 30px;
   --section-foto-set: 3;
   --section-foto-set-gap: 30px;
+  --section-clients-set: 6;
+  --section-clients-set-gap: 30px;
   --section-filter-link-set: 3;
   --section-filter-link-gap: 30px;
   --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
-
 body {
   background-color: var(--primary-white-color);
   color: var(--text-title-color);
@@ -110,7 +110,6 @@ img {
 .logo {
   display: inline-block;
   color: #000000;
-
   font-family: Raleway, sans-serif;
   font-weight: 700;
   font-size: 26px;
@@ -124,7 +123,6 @@ img {
   color: var(--primary-white-color);
   background-color: #2f303a; /*временно*/
 }
-
 .link-nav:hover,
 .link-nav:focus {
   color: var(--accent-color);
@@ -159,6 +157,8 @@ img {
 .link-contacts:hover,
 .link-contacts:focus {
   color: var(--accent-color);
+  /* outline: transparent;
+  opacity: 0.8; */
 }
 .link-contacts:hover .link-contacts-icon,
 .link-contacts:focus .link-contacts-icon {
@@ -166,9 +166,12 @@ img {
 }
 .link-contacts-icon {
   margin-right: 10px;
-  fill: var(--text-color);
+  fill: currentColor;
 }
 .link-contacts {
+  /* добавил падинги чтобы выровнять рамку при фокусе */
+  padding-top: 1px;
+  padding-bottom: 1px;
   display: flex;
   align-items: center;
   color: var(--text-color);
@@ -196,14 +199,13 @@ img {
 .address-map {
   color: var(--primary-white-color);
 }
-
 /* section */
 .page-header {
   padding-top: 24px;
   padding-bottom: 25px;
 }
 .hero {
-  background-color: #2f303a;
+  background-color: #c4c4c4;
   text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
@@ -262,7 +264,6 @@ img {
   padding: 10px 32px;
   min-width: 200px;
 }
-
 /* section Чем мы занимаемся описани */
 .section.description {
   padding-top: 85px;
@@ -324,7 +325,6 @@ img {
   margin-left: var(--section-foto-set-gap);
 }
 /* section Чем мы занимаемся */
-
 .section.team {
   background-color: var(--accent-bg-color);
 }
@@ -398,9 +398,16 @@ img {
 }
 .clients-list {
   display: inline-flex;
+  margin-left: calc(-1 * var(--section-clients-set-gap));
 }
-.clients-item + .clients-item {
+/* .clients-item + .clients-item {
   margin-left: 30px;
+} */
+.clients-item {
+  flex-basis: calc(
+    100% / var(--section-clients-set) - var(--section-clients-set-gap)
+  );
+  margin-left: var(--section-clients-set-gap);
 }
 .clients-link {
   display: flex;
@@ -439,6 +446,7 @@ img {
   display: inline-block;
   margin-left: 70px;
 }
+/* думал через strong но сильно меняется жирность */
 .go-us {
   font-weight: 700;
   font-size: 14px;
@@ -470,7 +478,6 @@ img {
   align-items: center;
   margin-bottom: 50px;
 }
-
 .filter li:not(:last-child) {
   margin-right: 8px;
 }
@@ -494,7 +501,6 @@ img {
   cursor: pointer;
 }
 /* filter */
-
 .filter-item {
   padding: 0;
   margin: 0;
