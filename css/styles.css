@@ -442,8 +442,12 @@ img {
 .logo-end {
   margin-bottom: 20px;
 }
+.address-block {
+  width: 231px;
+}
 .social-network-link {
   display: inline-block;
+  widows: 206px;
   margin-left: 70px;
 }
 /* думал через strong но сильно меняется жирность */
